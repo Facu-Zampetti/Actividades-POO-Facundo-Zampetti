@@ -1,7 +1,5 @@
 # Planificador de trabajos prácticos (Individual) 
 
----
-
 ## Construir una app Qt para planificar trabajos prácticos, con login, seguimiento de entregas y persistencia local.
 
 ### Alcance mínimo:
@@ -30,7 +28,6 @@
 
 
 # TP Planner - Planificador de Trabajos Prácticos
----
 
 ## Requisitos
 
@@ -39,7 +36,6 @@
 * Compilador compatible (MinGW o MSVC)
 * CMake (incluido con Qt Creator)
 
----
 
 ## Compilación y ejecución (Qt Creator)
 
@@ -50,10 +46,8 @@
    ```
    CMakeLists.txt
    ```
-4. Presionar **Configure Project**
-5. Ejecutar con el botón ▶️ (Run) o `Ctrl + R`
+4. Ejecutar con el botón de la flecha verde (Run) o `Ctrl + R`
 
----
 
 ## Archivos necesarios
 
@@ -63,7 +57,6 @@ Colocar estos archivos en la carpeta de ejecución (build):
 * `tasks.json` (puede estar vacío: `[]`)
 * `history.txt` (opcional, se crea automáticamente)
 
----
 
 ## Usuarios de prueba
 
@@ -75,7 +68,6 @@ Ejemplo de `users.json`:
 ]
 ```
 
----
 
 ## Funcionalidades
 
@@ -87,7 +79,6 @@ Ejemplo de `users.json`:
 * Historial de acciones en archivo
 * Interfaz gráfica con Qt Widgets (sin QML)
 
----
 
 ## Estructura del proyecto
 
@@ -103,16 +94,6 @@ TPPlanner/
  ├── CMakeLists.txt
 ```
 
----
-
-## Notas
-
-* No incluir la carpeta `build/` en el repositorio
-* Los archivos `.json` y `.txt` son externos al binario
-* La sesión se guarda en `session.txt`
-
----
-
-## 👨‍💻 Autor
+## Autor
 
 Facundo Zampetti

@@ -1,5 +1,7 @@
 # Planificador de trabajos prácticos (Individual) 
 
+---
+
 ## Construir una app Qt para planificar trabajos prácticos, con login, seguimiento de entregas y persistencia local.
 
 ### Alcance mínimo:
@@ -23,3 +25,94 @@
 . Usar QWidget (no QMainWindow).
 
 . Organizar el código en clases (no todo en main.cpp).
+
+
+
+
+# TP Planner - Planificador de Trabajos Prácticos
+---
+
+## Requisitos
+
+* Qt 6.x (recomendado 6.5 o superior)
+* Qt Creator
+* Compilador compatible (MinGW o MSVC)
+* CMake (incluido con Qt Creator)
+
+---
+
+## Compilación y ejecución (Qt Creator)
+
+1. Abrir Qt Creator
+2. Ir a **File → Open File or Project**
+3. Seleccionar el archivo:
+
+   ```
+   CMakeLists.txt
+   ```
+4. Presionar **Configure Project**
+5. Ejecutar con el botón ▶️ (Run) o `Ctrl + R`
+
+---
+
+## Archivos necesarios
+
+Colocar estos archivos en la carpeta de ejecución (build):
+
+* `users.json`
+* `tasks.json` (puede estar vacío: `[]`)
+* `history.txt` (opcional, se crea automáticamente)
+
+---
+
+## Usuarios de prueba
+
+Ejemplo de `users.json`:
+
+```
+[
+  { "username": "admin", "password": "1234" }
+]
+```
+
+---
+
+## Funcionalidades
+
+* Login con validación desde archivo JSON
+* Persistencia de sesión (5 minutos)
+* Alta, edición y eliminación de tareas
+* Notas asociadas a cada tarea
+* Filtros por estado y prioridad
+* Historial de acciones en archivo
+* Interfaz gráfica con Qt Widgets (sin QML)
+
+---
+
+## Estructura del proyecto
+
+```
+TPPlanner/
+ ├── main.cpp
+ ├── loginwindow.*
+ ├── mainwindow.*
+ ├── task.*
+ ├── taskmanager.*
+ ├── sessionmanager.*
+ ├── taskdialog.*
+ ├── CMakeLists.txt
+```
+
+---
+
+## Notas
+
+* No incluir la carpeta `build/` en el repositorio
+* Los archivos `.json` y `.txt` son externos al binario
+* La sesión se guarda en `session.txt`
+
+---
+
+## 👨‍💻 Autor
+
+Facundo Zampetti

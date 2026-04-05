@@ -17,7 +17,7 @@ Crear al menos una clase propia que contenga la lógica del monitoreo (no todo e
 ## Estructura
 
 - `PanelMonitoreoVPS.pro`: proyecto qmake.
-- `src/`: codigo fuente de la app Qt.
+- `src/`: código fuente de la app Qt.
 - `server/health_endpoint.py`: endpoint HTTP `/health` para desplegar en el VPS.
 
 ## Requisitos del ejercicio cubiertos
@@ -25,18 +25,18 @@ Crear al menos una clase propia que contenga la lógica del monitoreo (no todo e
 - Panel profesional de escritorio en Qt Widgets.
 - Endpoint de salud del servidor con uptime, carga, memoria y disco.
 - Estado general: `OK`, `ALERT`, `DOWN`.
-- Metricas principales visibles y legibles.
-- Ultimo chequeo.
-- Historial corto de eventos (ultimos 25).
+- Métricas principales visibles y legibles.
+- Último chequeo.
+- Historial corto de eventos (últimos 25).
 - Widgets interactivos: `QLineEdit`, `QSpinBox`, `QPushButton`, `QLabel`, `QProgressBar`, `QListWidget`.
 - Control de refresco manual (`Refrescar ahora`).
-- Configuracion de intervalo y umbrales (`QSpinBox`).
-- Clase propia para logica: `MonitorService`.
+- Configuración de intervalo y umbrales (`QSpinBox`).
+- Clase propia para lógica: `MonitorService`.
 
 ## Ejecutar endpoint en VPS (Linux)
 
 1. Copiar carpeta `server/` al VPS.
-2. Instalar Python 3 y pip si no estan instalados.
+2. Instalar Python 3 y pip si no están instalados.
 3. En el VPS:
 
 ```bash

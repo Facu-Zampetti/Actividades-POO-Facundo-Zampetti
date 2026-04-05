@@ -1,4 +1,4 @@
-# Planificador de trabajos prácticos (Individual) 
+# Ejercicio 01 - Planificador de trabajos prácticos (Individual) 
 
 ## Construir una app Qt para planificar trabajos prácticos, con login, seguimiento de entregas y persistencia local.
 

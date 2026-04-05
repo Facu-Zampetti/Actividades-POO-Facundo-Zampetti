@@ -1,4 +1,4 @@
-## Una empresa que se dedica al desarrollo de software ofrece soluciones y utiliza las siguientes tecnologías y herramientas:
+# Una empresa que se dedica al desarrollo de software ofrece soluciones y utiliza las siguientes tecnologías y herramientas:
  	
 ### QtCreator como IDE
 . Biblioteca Qt con C++ para aplicaciones Desktop.

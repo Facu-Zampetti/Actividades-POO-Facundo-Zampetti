@@ -85,3 +85,64 @@ Desarrollar una aplicación de escritorio en Qt que permita dibujar a mano alzad
 . Una clase para la vista (renderizado con paintEvent).
 
 . Una clase para la lógica de sincronización (API / VPS).
+
+
+## Requisitos
+- Windows 10/11.
+- Qt 6.10.2 con kit MinGW 64-bit.
+- MinGW (instalado desde Qt Maintenance Tool).
+- Acceso de red al VPS: `173.212.234.190:8082`.
+
+## Estructura principal
+- `Ejercicio5.pro`: configuración qmake.
+- `main.cpp`: punto de entrada.
+- `mainwindow.*`: UI principal y conexión de servicios.
+- `canvaswidget.*`: lienzo y render con paintEvent.
+- `drawingmodel.*`: modelo de trazos.
+- `syncservice.*`: carga/guardado HTTP.
+- `realtimesyncservice.*`: sincronización colaborativa en tiempo real por HTTP.
+
+## Compilacion en Qt Creator (recomendado)
+1. Abrir `Ejercicio5.pro`.
+2. Seleccionar kit: `Desktop Qt 6.10.2 MinGW 64-bit`.
+3. Ir a Build y ejecutar `Run qmake`.
+4. Ejecutar `Clean Project` (opcional, recomendado si hubo errores previos).
+5. Ejecutar `Build Project`.
+6. Ejecutar `Run`.
+
+## Compilacion por terminal (PowerShell)
+Desde la carpeta del proyecto:
+```powershell
+cd C:\Users\Facundo\Downloads\Lienzo\Ejercicio5
+
+# Generar Makefile
+C:\Qt\6.10.2\mingw_64\bin\qmake.exe Ejercicio5.pro
+
+# Compilar release
+C:\Qt\Tools\mingw1310_64\bin\mingw32-make.exe -j2
+```
+
+Ejecutable generado:
+- `release\lienzo_colaborativo.exe`
+
+## Ejecución
+Al iniciar la app:
+- Carga el estado del lienzo desde `/canvas` en el VPS.
+- Activa sincronización colaborativa incremental por HTTP.
+
+Interacciones:
+- Click izquierdo: dibujar.
+- Click derecho: goma.
+- Teclas `1..9`: color interpolado.
+- Rueda del mouse: grosor de trazo.
+- Boton `Guardar`: envía estado actual al servidor.
+
+### El proyecto no conecta al VPS
+- Verificar conectividad a `http://173.212.234.190:8082/canvas`.
+- Revisar firewall/proxy local.
+- Confirmar que el backend del VPS esté levantado.
+
+## Notas
+- El proyecto usa qmake (`.pro`).
+- Se recomienda no versionar carpetas locales de build (`build`, `debug`, `release`) ni archivos de usuario de Qt Creator (`.pro.user`).
+

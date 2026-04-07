@@ -86,63 +86,106 @@ Desarrollar una aplicación de escritorio en Qt que permita dibujar a mano alzad
 
 . Una clase para la lógica de sincronización (API / VPS).
 
+## Características
 
-## Requisitos
-- Windows 10/11.
-- Qt 6.10.2 con kit MinGW 64-bit.
-- MinGW (instalado desde Qt Maintenance Tool).
-- Acceso de red al VPS: `173.212.234.190:8082`.
+- Lienzo renderizado con paintEvent.
+- Dibujo libre con click izquierdo.
+- Goma con click derecho.
+- Trazo suavizado e interpolado para reducir segmentos rectos visibles.
+- Grosor dinámico con rueda del mouse (lápiz y goma).
+- Color del trazo con teclas numéricas 1..9.
+- Gradiente de color progresivo entre:
+  - RGB inicial: (192, 19, 76)
+  - RGB final: (24, 233, 199)
+- Barra superior con botón Guardar, estilo visual tipo Metro.
+- Carga del canvas desde servidor al iniciar.
+- Guardado manual del estado del canvas al servidor.
+- Sincronización colaborativa en tiempo real con modelo incremental.
+- Merge de trazos por id para no perder información entre usuarios.
+- Regla de autoría en borrado: cada usuario sólo puede borrar su propio contenido.
 
 ## Estructura principal
-- `Ejercicio5.pro`: configuración qmake.
-- `main.cpp`: punto de entrada.
-- `mainwindow.*`: UI principal y conexión de servicios.
-- `canvaswidget.*`: lienzo y render con paintEvent.
-- `drawingmodel.*`: modelo de trazos.
-- `syncservice.*`: carga/guardado HTTP.
-- `realtimesyncservice.*`: sincronización colaborativa en tiempo real por HTTP.
 
-## Compilacion en Qt Creator (recomendado)
-1. Abrir `Ejercicio5.pro`.
-2. Seleccionar kit: `Desktop Qt 6.10.2 MinGW 64-bit`.
-3. Ir a Build y ejecutar `Run qmake`.
-4. Ejecutar `Clean Project` (opcional, recomendado si hubo errores previos).
-5. Ejecutar `Build Project`.
-6. Ejecutar `Run`.
+- main.cpp: punto de entrada de la aplicación.
+- mainwindow.h / mainwindow.cpp: ventana principal, toolbar, wiring de servicios.
+- canvaswidget.h / canvaswidget.cpp: vista de dibujo e interacción de mouse/teclado.
+- drawingmodel.h / drawingmodel.cpp: modelo de trazos y serialización JSON.
+- syncservice.h / syncservice.cpp: carga/guardado HTTP del estado completo.
+- realtimesyncservice.h / realtimesyncservice.cpp: sincronización incremental en tiempo real.
+- Ejercicio5.pro: archivo de proyecto qmake.
 
-## Compilacion por terminal (PowerShell)
+## Requisitos
+
+- Windows
+- Qt 6.x con módulo Widgets y Network
+- MinGW (si compilas con kit MinGW)
+- qmake y mingw32-make disponibles en PATH
+
+## Compilación (terminal)
+
 Desde la carpeta del proyecto:
-```powershell
-cd C:\Users\Facundo\Downloads\Lienzo\Ejercicio5
 
-# Generar Makefile
-C:\Qt\6.10.2\mingw_64\bin\qmake.exe Ejercicio5.pro
+~~~powershell
+qmake Ejercicio5.pro
+mingw32-make -C .
+~~~
 
-# Compilar release
-C:\Qt\Tools\mingw1310_64\bin\mingw32-make.exe -j2
-```
+Si ya existe Makefile generado, normalmente alcanza con:
 
-Ejecutable generado:
-- `release\lienzo_colaborativo.exe`
+~~~powershell
+mingw32-make -C .
+~~~
 
 ## Ejecución
-Al iniciar la app:
-- Carga el estado del lienzo desde `/canvas` en el VPS.
-- Activa sincronización colaborativa incremental por HTTP.
 
-Interacciones:
-- Click izquierdo: dibujar.
-- Click derecho: goma.
-- Teclas `1..9`: color interpolado.
-- Rueda del mouse: grosor de trazo.
-- Boton `Guardar`: envía estado actual al servidor.
+Ejecutable de release:
 
-### El proyecto no conecta al VPS
-- Verificar conectividad a `http://173.212.234.190:8082/canvas`.
-- Revisar firewall/proxy local.
-- Confirmar que el backend del VPS esté levantado.
+~~~powershell
+.\release\lienzo_colaborativo.exe
+~~~
 
-## Notas
-- El proyecto usa qmake (`.pro`).
-- Se recomienda no versionar carpetas locales de build (`build`, `debug`, `release`) ni archivos de usuario de Qt Creator (`.pro.user`).
+Si prefieres modo debug (dependiendo de tu flujo):
 
+~~~powershell
+.\debug\lienzo_colaborativo.exe
+~~~
+
+## Compilar y correr desde Qt Creator
+
+1. Abrir Ejercicio5.pro.
+2. Seleccionar un kit de Qt 6 (por ejemplo MinGW 64-bit).
+3. Build.
+4. Run.
+
+## Configuración de servidor
+
+URL base configurada actualmente en el codigo:
+
+- http://173.212.234.190:8082
+
+Endpoint usado:
+
+- GET /canvas: recuperar estado actual del lienzo.
+- POST /canvas: guardar estado fusionado del lienzo.
+
+## Flujo de colaboración en tiempo real
+
+1. Al iniciar, el cliente hace carga inicial del canvas por HTTP.
+2. Luego se activa sincronización periódica en tiempo real.
+3. Los trazos locales se envían de forma incremental.
+4. Antes de publicar, el cliente fusiona estado remoto + local para evitar sobrescritura ciega.
+5. Los clientes remotos reciben nuevos trazos y deltas de puntos en vivo.
+
+## Controles
+
+- Mouse izquierdo presionado: dibujar.
+- Mouse derecho presionado: goma.
+- Rueda del mouse: cambiar grosor.
+- Teclas 1 a 9: cambiar color según gradiente.
+- Boton Guardar: persistir estado actual en VPS.
+
+## Notas técnicas
+
+- La autoría local se genera por cliente para distinguir trazos propios y remotos.
+- El borrado está aislado por autor a nivel de render para no afectar dibujos de otros integrantes.
+- El modelo usa ids de trazo para poder fusionar sin perder información.

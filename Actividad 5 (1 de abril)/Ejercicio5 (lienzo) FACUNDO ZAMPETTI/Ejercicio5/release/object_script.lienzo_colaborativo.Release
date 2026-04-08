@@ -1,0 +1,10 @@
+release/main.o
+release/mainwindow.o
+release/canvaswidget.o
+release/drawingmodel.o
+release/realtimesyncservice.o
+release/syncservice.o
+release/moc_mainwindow.o
+release/moc_canvaswidget.o
+release/moc_realtimesyncservice.o
+release/moc_syncservice.o

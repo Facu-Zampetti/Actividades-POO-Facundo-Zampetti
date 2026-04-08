@@ -1,0 +1,38 @@
+[
+    {
+        "notes": ". Estudiar teórico\n. Hacer ejercicios del punto 26 - 30",
+        "priority": "Media",
+        "status": "Pendiente",
+        "title": "Análisis Matemático III"
+    },
+    {
+        "notes": ". Hacer una presentación",
+        "priority": "Alta",
+        "status": "En progreso",
+        "title": "Etica y Legislación"
+    },
+    {
+        "notes": ". Trello con información de la página web",
+        "priority": "Baja",
+        "status": "Finalizado",
+        "title": "Laboratorio III"
+    },
+    {
+        "notes": ". Hacer códigos en QT",
+        "priority": "Alta",
+        "status": "En progreso",
+        "title": "Programación Orientada en Objetos"
+    },
+    {
+        "notes": ". Estudiar clase 1 y 2",
+        "priority": "Media",
+        "status": "Pendiente",
+        "title": "Comunicación de Datos"
+    },
+    {
+        "notes": ". Estudiar apuntes\n. Hacer guía de ejercicios de la unidad 1 y 2",
+        "priority": "Baja",
+        "status": "Pendiente",
+        "title": "Probabilidad y Estadística"
+    }
+]

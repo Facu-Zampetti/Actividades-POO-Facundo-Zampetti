@@ -9,4 +9,4 @@
 
 --- 
 
-### Link del video: 
+### Link del video: https://youtu.be/b6YmNVnFE_k

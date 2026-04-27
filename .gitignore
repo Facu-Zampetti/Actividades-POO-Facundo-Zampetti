@@ -1,0 +1,20 @@
+# Compilados
+*.class
+
+# Carpetas de build
+bin/
+build/
+out/
+target/
+
+# Logs y temporales
+*.log
+*.tmp
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db

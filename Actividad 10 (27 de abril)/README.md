@@ -11,17 +11,23 @@
 
 . Jerarquía polimórfica para validación de sintaxis:
 
+```
 ValidadorSintaxis (abstracta)
 ValidadorCpp, ValidadorPython y ValidadorJava (derivadas)
-Validación de sintaxis por línea: la verificación debe ejecutarse al abandonar la línea que se está editando.
-Resaltado de error en rojo cuando la línea sea inválida, con mensaje de diagnóstico amigable en la UI.
+```
+. Validación de sintaxis por línea: la verificación debe ejecutarse al abandonar la línea que se está editando.
+
+. Resaltado de error en rojo cuando la línea sea inválida, con mensaje de diagnóstico amigable en la UI.
 
 . Captura y redefinición de eventos en las clases derivadas:
+
+```
 keyPressEvent para atajos del editor.
 mousePressEvent para interacción de cursor y selección.
 resizeEvent para adaptación visual del contenido.
 closeEvent para confirmación de salida y guardado.
 focusInEvent y focusOutEvent para control de edición y disparo de validación.
+```
 
 . Redefinición consciente de eventos: cada pantalla debe implementar un comportamiento distinto según su responsabilidad.
 
@@ -37,4 +43,4 @@ focusInEvent y focusOutEvent para control de edición y disparo de validación.
 
 . Exportación final a un único archivo JPG que contenga todo el código escrito, en forma legible y respetando saltos de línea.
 
-Para que no quede vacía la ventana principal, agregar un panel lateral con currículum estilo LinkedIn: foto, descripción breve, habilidades y contacto.
+. Para que no quede vacía la ventana principal, agregar un panel lateral con currículum estilo LinkedIn: foto, descripción breve, habilidades y contacto.

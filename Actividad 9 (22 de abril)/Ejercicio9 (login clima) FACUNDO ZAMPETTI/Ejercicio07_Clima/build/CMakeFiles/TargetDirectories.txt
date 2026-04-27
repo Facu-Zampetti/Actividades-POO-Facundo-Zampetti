@@ -1,0 +1,5 @@
+C:/Ejercicio07_Clima/build/CMakeFiles/Ejercicio07_Clima.dir
+C:/Ejercicio07_Clima/build/CMakeFiles/edit_cache.dir
+C:/Ejercicio07_Clima/build/CMakeFiles/rebuild_cache.dir
+C:/Ejercicio07_Clima/build/CMakeFiles/Ejercicio07_Clima_autogen_timestamp_deps.dir
+C:/Ejercicio07_Clima/build/CMakeFiles/Ejercicio07_Clima_autogen.dir

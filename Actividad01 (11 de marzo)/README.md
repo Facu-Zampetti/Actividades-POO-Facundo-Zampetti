@@ -6,8 +6,6 @@ Realizar un sistema a elección por el estudiante. Tanto el IDE, como los lengua
 ## Descripción
 Aplicación web sencilla que permite calcular el **costo estimado de combustible** para un viaje, en base a la distancia, el consumo del vehículo y el precio actual de la nafta.
 
----
-
 ## Funcionalidades
 - Ingreso de la **distancia del viaje** en kilómetros.
 - Ingreso del **consumo del auto** en litros cada 100 km.
@@ -18,9 +16,7 @@ Aplicación web sencilla que permite calcular el **costo estimado de combustible
 - Botón **Limpiar** para reiniciar todos los campos.
 - Soporte para calcular presionando la tecla **Enter**.
 - Validación de datos: muestra advertencia si algún campo es inválido o vacío.
-
----
-
+  
 ## Tecnologías utilizadas
 
 | Tecnología | Uso |
@@ -28,8 +24,6 @@ Aplicación web sencilla que permite calcular el **costo estimado de combustible
 | HTML5      | Estructura de la página |
 | CSS3       | Estilos, animaciones y diseño responsivo |
 | JavaScript | Lógica de cálculo e interacción con el DOM |
-
----
 
 ## Estructura del proyecto
 
@@ -39,9 +33,6 @@ calculadora-combustible/
 ├── style.css    → Estilos visuales y animaciones
 └── script.js    → Lógica de cálculo y manejo de eventos
 ```
-
----
-
 ## Cómo usar
 
 1. Abrir el archivo `index.html` en cualquier navegador web.

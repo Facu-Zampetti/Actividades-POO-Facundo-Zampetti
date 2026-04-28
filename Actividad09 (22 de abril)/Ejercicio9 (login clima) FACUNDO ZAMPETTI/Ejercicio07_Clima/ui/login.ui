@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWidget</class>
+ <widget class="QWidget" name="LoginWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Login - Clima en Cordoba</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>36</number>
+   </property>
+   <property name="topMargin">
+    <number>28</number>
+   </property>
+   <property name="rightMargin">
+    <number>36</number>
+   </property>
+   <property name="bottomMargin">
+    <number>28</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>Ingreso al sistema</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 32px; font-weight: 700; color: #0f172a;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="subtitleLabel">
+     <property name="text">
+      <string>Usuario admin con clima y hora local de Cordoba</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px; color: #475569;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer1">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="weatherLayout">
+     <item>
+      <widget class="QLabel" name="temperatureLabel">
+       <property name="text">
+        <string>Temperatura: --.- °C</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 18px; color: #0b3a53; font-weight: 600;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="timeLabel">
+       <property name="text">
+        <string>Hora local: --:--</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 18px; color: #0b3a53; font-weight: 600;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="weatherStatusLabel">
+     <property name="text">
+      <string>Estado clima: inicializando...</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #334155; font-size: 13px;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>18</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="usernameEdit">
+     <property name="placeholderText">
+      <string>Usuario</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="passwordEdit">
+     <property name="placeholderText">
+      <string>Contrasena</string>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="loginButton">
+     <property name="text">
+      <string>Ingresar</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton { background-color: #0b3a53; color: white; border-radius: 8px; padding: 10px; font-weight: 700; }
+QPushButton:disabled { background-color: #93a7b5; }</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="loginStatusLabel">
+     <property name="text">
+      <string>Ingrese sus credenciales.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 13px; color: #1e293b;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

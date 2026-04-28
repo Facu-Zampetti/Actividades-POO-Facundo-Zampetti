@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS kanban_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE kanban_db;
+
+CREATE TABLE IF NOT EXISTS `columns` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description TEXT,
+    column_id INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_cards_column FOREIGN KEY (column_id) REFERENCES `columns`(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS card_order (
+    card_id INT PRIMARY KEY,
+    column_id INT NOT NULL,
+    position INT NOT NULL,
+    CONSTRAINT fk_order_card FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE,
+    CONSTRAINT fk_order_column FOREIGN KEY (column_id) REFERENCES `columns`(id) ON DELETE CASCADE,
+    CONSTRAINT uq_column_position UNIQUE (column_id, position)
+);

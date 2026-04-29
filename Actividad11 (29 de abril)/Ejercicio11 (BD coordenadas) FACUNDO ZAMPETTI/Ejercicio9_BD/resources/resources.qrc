@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/styles">
-        <file>dark_tech.qss</file>
-    </qresource>
-</RCC>

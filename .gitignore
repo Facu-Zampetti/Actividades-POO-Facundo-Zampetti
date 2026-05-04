@@ -15,6 +15,16 @@ target/
 .vscode/
 .idea/
 
+# Qt Creator / qmake (configuracion local de cada maquina)
+.qtcreator/
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.creator.user
+*.creator.user.*
+CMakeLists.txt.user
+
 # Sistema
 .DS_Store
 Thumbs.db
